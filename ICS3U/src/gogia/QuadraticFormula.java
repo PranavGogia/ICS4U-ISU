@@ -19,14 +19,8 @@ public class QuadraticFormula {
 		double a = 0;
 		double b = 0;
 		double c = 0;
-		double firstStep = 0;
-		double secondStep = 0;
-		double thirdStep = 0;
-		double fourthStep = 0;
-		double firstStep2 = 0;
-		double secondStep2 = 0;
-		double thirdStep2 = 0;
-		double fourthStep2 = 0;
+		double secondZero = 0;
+		double firstZero = 0;
 		
 		DecimalFormat df = new DecimalFormat ("0.00");
 		
@@ -45,18 +39,11 @@ public class QuadraticFormula {
 		
 		
 		
-		firstStep = ((Math.pow(b, 2)) - (4*(a*c)));
-		secondStep =  Math.sqrt(firstStep);
-		thirdStep = (b) + secondStep;
-		fourthStep = thirdStep / (2*(a*c));
+		firstZero = (-b + Math.sqrt(Math.pow(b, 2) - 4*a*c)) / (2*a);
+		secondZero = (-b - Math.sqrt(Math.pow(b, 2) - 4*a*c)) / (2*a);
 		
-		firstStep2 = (Math.pow(b, 2)) - (4*(a*c));
-		secondStep2 =  Math.sqrt(firstStep2);
-		thirdStep2 = (b) - secondStep2;
-		fourthStep2 = thirdStep2 / (2*(a*c));
-		
-		double x = fourthStep;
-		double y = fourthStep2;
+		double x = firstZero;
+		double y = secondZero;
 		
 		System.out.println(df.format(x));
 		System.out.println(df.format(y));
