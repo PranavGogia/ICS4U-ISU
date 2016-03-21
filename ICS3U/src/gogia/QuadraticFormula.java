@@ -1,8 +1,7 @@
 /* Pranav Gogia
- * March 10 2016
- * Math Methods Assignment
- * This program takes in 5 numbers and performs different operands on them
- * in order to get a new answer
+ * March 21 2016
+ * Quadratic Equation Solver
+ * This program takes in 3 number and finds their roots
  * 
  */
 package gogia;
