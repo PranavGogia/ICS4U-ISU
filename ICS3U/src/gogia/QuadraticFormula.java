@@ -37,16 +37,16 @@ public class QuadraticFormula {
 		Scanner cInput = new Scanner(System.in);
 		c = Double.parseDouble(cInput.nextLine());
 		
-		
+	
 		
 		firstZero = (-b + Math.sqrt(Math.pow(b, 2) - 4*a*c)) / (2*a);
 		secondZero = (-b - Math.sqrt(Math.pow(b, 2) - 4*a*c)) / (2*a);
 		
 		double x = firstZero;
 		double y = secondZero;
-		
-		System.out.println(df.format(x));
-		System.out.println(df.format(y));
+			
+		System.out.println("The first zero is " + df.format(x));
+		System.out.println("The second zero is " +df.format(y));
 	}
 
 }
