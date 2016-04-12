@@ -4,11 +4,12 @@ import java.util.Scanner;
 import java.awt.Image.*;
 import java.awt.Toolkit;
 import hsa_new.Console;
+import java.util.concurrent.TimeUnit;
 
 public class AdventureAssignment {
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 
 
@@ -28,7 +29,7 @@ public class AdventureAssignment {
 
 		c.println("Would you like to play a scary game?");
 		playGameOrNotInput = c.readLine();
-
+		c.clear();
 		if (playGameOrNotInput.equalsIgnoreCase("yes"))
 		{
 			playGameOrNot = true;
@@ -41,16 +42,17 @@ public class AdventureAssignment {
 
 					c.println("Welcome Stranger, Please Enter Your Name");
 					name = c.readLine();
+					c.clear();
+					
 					c.println( " You are in a creepy house and have no idea how you got there. You want to find out what you are doing her! Would you like to go 'upstairs' first or into the 'kitchen'? ");
-					c.print( "> ");
 					goUpOrKitchen = c.readLine();
+					Thread.sleep(500);
 					c.clear();
 
 					
 					// Kitchen or Upstairs Choice 1
 					if (goUpOrKitchen.equalsIgnoreCase("kitchen"))
 					{c.println("You are hungry. There is a 'fridge' in one corner and a 'pantry' in another. WHich oe do you want to check? ");
-					c.print(">  ");
 					lookFridgeOrPantry = c.readLine();
 					c.clear();}
 					else {
@@ -62,7 +64,6 @@ public class AdventureAssignment {
 					//Kitchen: Pantry: Something Lurking
 					if (lookFridgeOrPantry.equalsIgnoreCase("pantry"))
 					{ c.println("There is something lurking in the dark corner of the pantry, 'check' it out or 'leave' and lose a life");
-					c.print(">  ");
 					pantryEatOrNot = c.readLine();
 					c.clear();
 					}
@@ -77,7 +78,6 @@ public class AdventureAssignment {
 				// Kitchen:Refrigerator or Pantry Choice 1
 				if (lookFridgeOrPantry.equalsIgnoreCase("fridge"))
 				{c.println("The food looks a bit old and might have gone bad, but you're very hungry. Try it, say 'Yes' or 'No'");
-				c.print(">  ");
 				eat = c.readLine();
 				c.clear();}
 				else
@@ -93,7 +93,6 @@ public class AdventureAssignment {
 				{
 					lives = lives - 1;
 				c.println("Sorry, the food was bad and you died :(." + name +  ", You have " + lives + " lives left ");
-				c.print(">  ");
 				eat = c.readLine();
 				c.clear();
 				}
