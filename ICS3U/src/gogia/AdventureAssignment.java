@@ -23,6 +23,9 @@ public class AdventureAssignment {
 
 		Console c = new Console();
 		Clip theme = AudioSystem.getClip(); 
+		Clip themewin = AudioSystem.getClip(); 
+		Clip themedie = AudioSystem.getClip(); 
+		Clip themegokuWin = AudioSystem.getClip(); 
 
 		// Strings assigned to different actions
 		String goUpOrKitchen = null, lookFridgeOrPantry = null, eat = null, check = null, search = null, name = null, runOrFightPantry,pantryEatOrNot = null,eatAgainOrNot,playAgainOrNot, basementOrRoof = null, playGameOrNotInput, runOrFightFridge,basementDoorOrUpstairsDoor = null;
@@ -32,8 +35,21 @@ public class AdventureAssignment {
 		int randomA3 = (int )(Math. random() * 100 + 1);
 		int lives = 2;
 
-		Image jpgTitlePage, jpghauntedHouse, jpgTitlePageGandalf, jpgkitchen, jpglive, jpgbasement, jpgidiot, jpgdie, jpgrun, jpgsurvive, jpgzombies;
+		Image jpgTitlePage, jpghauntedHouse, jpgTitlePageGandalf, jpgkitchen, jpglive, jpgbasement, jpgidiot, jpgdie, jpgrun, jpgsurvive, jpgzombies, jpggokuWin, jpgwin, jpgloading, jpgloadingDone;
 
+		
+		
+		theme.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/creepy.wav"))); 
+		jpgloading = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/loading.jpg");
+		jpgloadingDone = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/loadingDOne.jpg");
+		theme.start();
+		c.drawImage(jpgloading, 0, 0, 640,420, null);
+		Thread.sleep(30000);
+		c.drawImage(jpgloading, 0, 0, 640,420, null);
+		Thread.sleep(1000);
+		
+		
+		
 		jpgTitlePage = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/titlePage.jpg");
 		jpgTitlePageGandalf = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/titlePageGandalf.jpg");
 		jpghauntedHouse = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/hauntedHouse.jpg");
@@ -45,12 +61,18 @@ public class AdventureAssignment {
 		jpgrun = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/run.jpg");
 		jpgsurvive = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/survive.jpg");
 		jpgzombies = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/zombies.jpg");
+		jpggokuWin = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/gokuWin.jpg");
+		jpgwin = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/win.jpg");
 		
 		
 		
-		theme.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/creepy.wav"))); 
+		
+		themewin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/win.wav"))); 
+		themedie.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/die.wav")));
+		themegokuWin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/gokuWin.wav")));
 
-		theme.start();
+
+		
 		c.setTextBackgroundColor(Color.black);
 		c.setTextColor(Color.white);
 		c.clear();
@@ -112,11 +134,12 @@ public class AdventureAssignment {
 					goUpOrKitchen = c.readLine();
 					Thread.sleep(500);
 					c.clear();
+				
 
 
 
 					// Kitchen or Upstairs Choice 1
-					else if (goUpOrKitchen.equalsIgnoreCase("kitchen"))
+					if (goUpOrKitchen.equalsIgnoreCase("kitchen"))
 					{ 
 						c.drawImage(jpgkitchen, 0, 85, 640,420, null);
 						c.println("You are hungry. There is a fridge in one corner and a pantry in another. Which one do you want to check?(fridge?pantry) ");
@@ -158,11 +181,13 @@ public class AdventureAssignment {
 					//Kitchen: Refrigerator: Eat or Not Choice 1
 					if (eat.equalsIgnoreCase("Yes"))
 					{
+						themedie.start();
 						c.println("Sorry, the food was bad and you died :(." + name +  ", You have " + lives + " lives left ");
 						c.drawImage(jpgidiot, 0, 85, 640,420, null);
 						Thread.sleep(5000);
 						c.clear();
-						eat.equalsIgnoreCase("No");
+						playGameOrNot = false;
+						
 					}
 					else if (eat.equalsIgnoreCase("No"))
 					{
@@ -174,6 +199,7 @@ public class AdventureAssignment {
 						{
 							c.drawImage(jpgdie, 0, 85, 640,420, null);
 							c.println("You were too slow, the zombie ate you. Run faster next time");
+							themedie.start();
 							Thread.sleep(5000);
 							playGameOrNot = false;
 						}
@@ -181,6 +207,7 @@ public class AdventureAssignment {
 						{
 							c.drawImage(jpgdie, 0, 85, 640,420, null);
 							c.println("You're too weak. Join fitness. The zombie even said that you tasted delicious because of the lack of muscle ");
+							theme.start();
 							Thread.sleep(5000);
 							playGameOrNot = false;
 						}
@@ -216,7 +243,8 @@ public class AdventureAssignment {
 						{
 
 							c.println("You were too slow, the zombie ate you. Run faster next time");
-							Thread.sleep(1000);
+							theme.start();
+							Thread.sleep(500);
 							c.drawImage(jpgdie, 0, 85, 640,420, null);
 							Thread.sleep(5000);
 							playGameOrNot = false;
@@ -225,12 +253,21 @@ public class AdventureAssignment {
 						{
 							c.drawImage(jpgdie, 0, 85, 640,420, null);
 							c.println("You're too weak. Join fitness, and oh yeah, the zombie ate you. He said you tasted delicious because of the lack of muscle ");
+							theme.start();
 							Thread.sleep(5000);
 							playGameOrNot = false;
 						}
 						else if (runOrFightPantry.equalsIgnoreCase("fight") || randomA2 >=41)
 						{
-							c.println("Deeze muscles!! You killed a zombie, good for you. Just 4.7 billion more and the world will be rid of zombies ");
+							c.println("Deeze muscles!! You killed a zombie, good for you");
+							themegokuWin.start();
+							c.drawImage(jpgdie, 0, 85, 640,420, null);
+							Thread.sleep(5000);
+							
+							c.println("... and then another zombie came and ate you");
+							themegokuWin.start();
+							c.drawImage(jpgdie, 0, 85, 640,420, null);
+							Thread.sleep(8000);
 							surviveFightWithZombie = true;
 						}
 						else
@@ -266,6 +303,7 @@ public class AdventureAssignment {
 					{
 						c.println("So close. You saw the keys and ran for them but tripped and fell down and broke your neck");
 						c.drawImage(jpgdie, 0, 85, 640,420, null);
+						themedie.start();
 						Thread.sleep(5000);
 						playGameOrNot = false;
 					}
@@ -274,6 +312,7 @@ public class AdventureAssignment {
 						c.drawImage(jpgdie, 0, 85, 640,420, null);
 
 						c.println("I dont like your shoes. SO u slip down and die :)");
+						themedie.start();
 						Thread.sleep(5000);
 						playGameOrNot = false;
 
@@ -290,15 +329,21 @@ public class AdventureAssignment {
 					// Kitchen:Pantry:Something Lurking: Check: Basement: Find keys
 					if (basementDoorOrUpstairsDoor.equalsIgnoreCase("basement"))
 					{
-						c.println("Congratulations, you got out alive.........and then you got hit by a truck and died. Fail ");
+						c.println("Congratulations, you got out alive!!!");
+						c.drawImage(jpglive, 0, 85, 640,420, null);
+						themewin.start();
+						Thread.sleep(5000);
+						c.println(".........and then you got hit by a truck and died. Fail ");
 						c.println("thanx for trying");
 						Thread.sleep(1000);
 						c.drawImage(jpgdie, 0, 85, 640,420, null);
+						themedie.start();
 						playGameOrNot = false;
 					}
 					else if (basementDoorOrUpstairsDoor.equalsIgnoreCase("upstairs"))
 					{
 						c.println("You live!!!. Just kidding, a zombie ate you ");
+						themedie.start();
 						Thread.sleep(5000);
 						playGameOrNot = false;
 					}
@@ -312,25 +357,27 @@ public class AdventureAssignment {
 					}
 
 
-					c.println("Would you like to play again?");
-					playAgainOrNot = c.readLine();
-					if (playAgainOrNot.equalsIgnoreCase("yes"))
-					{
-						playGameOrNot = true;	
-					}
-					else
-					{
-						playGameOrNot = false;
-					}
+					
 
 
-
+				
 
 
 				}
 
 			}
 
+		}
+		c.println("Would you like to play again?");
+		playAgainOrNot = c.readLine();
+		if (playAgainOrNot.equalsIgnoreCase("yes"))
+		{
+			playGameOrNot = true;	
+		}
+		else
+		{
+			playGameOrNot = false;
+			c.close();
 		}
 
 	}
