@@ -1,5 +1,5 @@
 /* Pranav Gogia
- * 20 March 2016
+ * 30 March 2016
  * Grade Calculator
  * This program takes in how many grades the user is entering and what they are
  * and then it get what grade the student deserves and displays it

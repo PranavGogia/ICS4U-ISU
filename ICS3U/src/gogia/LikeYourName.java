@@ -22,6 +22,7 @@ public class LikeYourName {
 		System.out.println("What is your name?");
 		Scanner userNameInput = new Scanner(System.in);
 		userName = userNameInput.nextLine();
+		
 		percentageDecider = (int) (Math.random() * 11);
 		
 		if (percentageDecider <7)
