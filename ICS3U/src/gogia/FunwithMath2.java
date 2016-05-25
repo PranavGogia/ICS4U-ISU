@@ -1,4 +1,4 @@
-/* Pranav Gogia
+/* Pranav Gogia																						
  * 24 May 2016
  * Fun with Math 2 Program
  * This program uses methods to add, subtract, multiply and divide two number(inputted by user) 
@@ -29,10 +29,10 @@ public class FunwithMath2 {
 		System.out.println("Please enter the second number");
 		num2 = scan.nextDouble();
 		// transfer the variables to the methods and call them
-		System.out.println("a+b="+(df.format(adding(num1,num2))));
-		System.out.println("a-b="+(df.format(subtracting(num1,num2))));
-		System.out.println("a*b="+(df.format(multiplying(num1,num2))));
-		System.out.println("a/b="+(df.format(dividing(num1,num2))));
+		System.out.println(num1 + "+" + num2 + " = " +(df.format(adding(num1,num2))));
+		System.out.println(num1 + "-" + num2 + " = " +(df.format(subtracting(num1,num2))));
+		System.out.println(num1 + "*" + num2 + " = " +(df.format(multiplying(num1,num2))));
+		System.out.println(num1 + "/" + num2 + " = " +(df.format(dividing(num1,num2))));
 
 
 
