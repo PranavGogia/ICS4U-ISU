@@ -15,7 +15,8 @@ import hsa_new.Console;
 public class ZombieApocalypse
 {
 
-	public static Console console = new Console(47,157);
+	public static Console console = new Console();
+	// conosle size if later needed 47,157
 	public static int keyChance = (int )(Math. random() * 10 + 1);
 	public static int showerCounter = 0;
 	public static int randomOne = (int )(Math. random() * 100 + 1);
@@ -25,8 +26,8 @@ public class ZombieApocalypse
 	public static boolean playOrNot = false;
 	public static Image jpgHauntedHouse, jpgKitchen, jpgLive, jpgBasement, jpgIdiot, jpgDie, jpgRun, jpgSurvive, jpgZombies, jpgGokuWin, jpgWin, jpgUpstairs, jpgBedroom, jpgAttic, jpgBathroom, jpgDoor, jpgBackyard,jpgTitlePage, jpgLoading , jpgLoadingDone;
 	public static String[] arrayUpstairs = new String[] { "upstairs", "bedroom", "search", "attic", "leave", "basement", "front door","side door", "backyard", "rest", "search", "leave",};
-	public static String[] arrayUpstairsBathroom = new String[] {"bathroom",  };
-
+	public static String[] arrayUpstairsBathroom = new String[] {"bathroom", "shower", "basement", "front door", "side door", "backyard", "leave"};
+	public static String[] arrayKitchen = new String[] { ""};
 
 
 
@@ -338,8 +339,104 @@ public class ZombieApocalypse
 
 
 			}
-			else if(bedroom.equalsIgnoreCase(arrayUpstairsBathroom[1]))
+			else if(bedroom.equalsIgnoreCase(arrayUpstairsBathroom[0]))
 			{
+				console.clear();
+				console.drawImage(jpgBathroom, 0, 85, 640,420, null);
+				console.println("You enter the bathroom and look around. there is nothing of note in there other than a fully functional shower. Would you like to leave or shower first? (leave/shower)");
+				bathroom=console.readLine();
+				if(bathroom.equalsIgnoreCase(arrayUpstairsBathroom[1]))
+				{
+					console.clear();
+					console.drawImage(jpgBathroom, 0, 85, 640,420, null);
+					//themeShower.start();
+					console.println("You enter the shower and turn it on.");
+
+					// do while loop. If person picks shower again more than 2 times then they die
+					do
+					{
+						console.println(" You feel refreshed and relaxed.Do you wish to keep showering or leave? (shower/leave)");
+						continueShowering=console.readLine();
+						console.clear();
+						if(continueShowering.equalsIgnoreCase("shower")) showerCounter++;
+
+					}while(showerCounter<3);
+					//themeShower.start();
+					console.println("you leave the shower and walk back down the stairs");
+
+					if(showerCounter<3)
+					{
+						//themedie.start();
+						console.println("A zombie snuck up behind you while walking down the stairs. It was not a soft landing.");
+						Thread.sleep(4000);
+					}
+
+					else
+					{
+						console.println("When you reach the front door again you see a zombie at the top of the stairs. You run and start looking for somewhere to hide when you see a path to the basement and a back door. Where will you go?");
+						basement=console.readLine();
+
+						if(basement.equalsIgnoreCase(arrayUpstairsBathroom[2]))
+						{
+							console.clear();
+							console.drawImage(jpgBasement, 0, 85, 640,420, null);
+							if(keyChance<9)
+							{
+								console.println("While running from the zombie you manage to find a key.");
+								console.println("Will you try to use it on the front door or the side door? (front door/side door)");
+								sideDoor=console.readLine();
+
+								if(sideDoor.equalsIgnoreCase(arrayUpstairsBathroom[3]))
+								{
+									console.clear();
+
+									console.println("You slip past the zombie and run to the front door.");
+									console.println("You desperately try to unlock the door and barely manage to succeed before the zombie catches you.");
+									console.println("You leave quickly slamming the door shut behind you and quickly leave the house of horrors behind.");
+								}
+
+								else if (sideDoor.equalsIgnoreCase(arrayUpstairsBathroom[4]))
+								{
+									console.clear();
+									console.println("You run to the door and franticly try to unlock the door while the zombie approaches.");
+									console.println("In your frenzy the key breaks in the lock and the zombie eats you.");
+									Thread.sleep(4000);
+
+								}
+
+							}
+							else
+							{
+								console.println("You enter the basement and find yourself trapped. The zombie finally catches up and makes a quick meal of you.");
+								Thread.sleep(4000);
+							}
+
+						}
+						else if (basement.equalsIgnoreCase(arrayUpstairsBathroom[5]))
+						{
+							console.clear();
+							console.println("You run to the backdoor swinging it open and running out only to realise that there was not only one zombie.");
+							console.println("A group of zombies quickly jump on you before you have to chance to react.");
+							Thread.sleep(4000);
+						}
+						else
+						{
+							resetMethodUpstairs();
+						}
+
+					}
+
+				}
+				else if(bathroom.equalsIgnoreCase(arrayUpstairsBathroom[6]))
+				{
+					console.clear();
+					console.println("As you exit the bathroom a zombie that was walking by spots you and eats you.");
+					Thread.sleep(4000);
+				}
+				else
+				{
+					resetMethodUpstairs();
+				}
 
 			}
 			else 
@@ -355,11 +452,8 @@ public class ZombieApocalypse
 		playingMethod();
 
 	}// end of method upstairs
-	
-	
-	
-	
-	
+
+
 
 	public static void choseKitchen()
 	{// start of method kitchen
@@ -377,10 +471,10 @@ public class ZombieApocalypse
 
 	}// end of method died
 
-public static void resetMethodUpstairs() throws InterruptedException, LineUnavailableException, IOException, UnsupportedAudioFileException
-{
-	choseUpstairs();
-}
+	public static void resetMethodUpstairs() throws InterruptedException, LineUnavailableException, IOException, UnsupportedAudioFileException
+	{
+		choseUpstairs();
+	}
 
 
 
