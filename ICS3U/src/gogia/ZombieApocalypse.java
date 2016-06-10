@@ -27,8 +27,8 @@ public class ZombieApocalypse
 	public static Image jpgHauntedHouse, jpgKitchen, jpgLive, jpgBasement, jpgIdiot, jpgDie, jpgRun, jpgSurvive, jpgZombies, jpgGokuWin, jpgWin, jpgUpstairs, jpgBedroom, jpgAttic, jpgBathroom, jpgDoor, jpgBackyard,jpgTitlePage, jpgLoading , jpgLoadingDone;
 	public static String[] arrayUpstairs = new String[] { "upstairs", "bedroom", "search", "attic", "leave", "basement", "front door","side door", "backyard", "rest", "search", "leave",};
 	public static String[] arrayUpstairsBathroom = new String[] {"bathroom", "shower", "basement", "front door", "side door", "backyard", "leave"};
-	public static String[] arrayKitchen = new String[] { ""};
-
+	public static String[] arrayKitchen = new String[] { "kitchen", "fridge", "yes", "no", "run", "fight"};
+	public static String[] arrayKitchenPantry = new String[] { "pantry", "check", "basement", "basement", "upstairs", "roof","roof", "leave", "run", "fight", "fight"};
 
 
 
@@ -195,7 +195,7 @@ public class ZombieApocalypse
 			}
 			else
 			{
-				console.println("Please enter a valid input");
+				console.println("Please enter a valid input. The game will now restart so that you remember to type in the correct thing the next time");
 				playingMethod();
 			}
 
@@ -270,7 +270,10 @@ public class ZombieApocalypse
 									}
 									else 
 									{
-										playingMethod();
+										console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+										console.println("Please type in a valid input and play again");
+										Thread.sleep(3000);
+										choseKitchen();
 									}
 
 								}
@@ -294,7 +297,10 @@ public class ZombieApocalypse
 							}
 							else 
 							{
-								playingMethod();
+								console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+								console.println("Please type in a valid input and play again");
+								Thread.sleep(3000);
+								choseKitchen();
 							}
 
 						}
@@ -307,7 +313,10 @@ public class ZombieApocalypse
 						}
 						else
 						{
-							playingMethod();
+							console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+							console.println("Please type in a valid input and play again");
+							Thread.sleep(3000);
+							choseKitchen();
 						}
 
 					}
@@ -320,7 +329,10 @@ public class ZombieApocalypse
 					}
 					else
 					{
-						choseUpstairs();
+						console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+						console.println("Please type in a valid input and play again");
+						Thread.sleep(3000);
+						choseKitchen();
 					}
 
 				}
@@ -333,7 +345,10 @@ public class ZombieApocalypse
 				}
 				else
 				{
-					playingMethod();
+					console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+					console.println("Please type in a valid input and play again");
+					Thread.sleep(3000);
+					choseKitchen();
 				}
 
 
@@ -421,7 +436,10 @@ public class ZombieApocalypse
 						}
 						else
 						{
-							resetMethodUpstairs();
+							console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+							console.println("Please type in a valid input and play again");
+							Thread.sleep(3000);
+							choseKitchen();
 						}
 
 					}
@@ -435,13 +453,19 @@ public class ZombieApocalypse
 				}
 				else
 				{
-					resetMethodUpstairs();
+					console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+					console.println("Please type in a valid input and play again");
+					Thread.sleep(3000);
+					choseKitchen();
 				}
 
 			}
 			else 
 			{
-				resetMethodUpstairs();
+				console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+				console.println("Please type in a valid input and play again");
+				Thread.sleep(3000);
+				choseKitchen();
 			}
 
 
@@ -455,8 +479,243 @@ public class ZombieApocalypse
 
 
 
-	public static void choseKitchen()
+	public static void choseKitchen() throws InterruptedException, LineUnavailableException, IOException, UnsupportedAudioFileException
 	{// start of method kitchen
+
+		console.drawImage(jpgKitchen, 0, 85, 640,420, null);
+		console.println("You are hungry. There is a fridge in one corner and a pantry in another. Which one do you want to check?(fridge/pantry) ");
+		lookFridgeOrPantry = console.readLine();
+		console.clear();
+		if (lookFridgeOrPantry.equalsIgnoreCase(arrayKitchen[1]))
+		{
+			console.drawImage(jpgKitchen, 0, 85, 640,420, null);
+			console.println("The food looks a bit old and might have gone bad, but you're very hungry. Would you like to try it? (yes/no)");
+			eat = console.readLine();
+			console.clear();
+			if (eat.equalsIgnoreCase(arrayKitchen[2]))
+			{
+				console.println("Sorry," + name + ", but the food was bad and you died :(." );
+				//themedie.start();
+				console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+				Thread.sleep(5000);
+				console.clear();
+			}
+			else if (eat.equalsIgnoreCase(arrayKitchen[3]))
+			{
+				console.drawImage(jpgZombies, 0, 85, 640,420, null);
+				console.println("There is a zombie blocking the only entrance. Run away or fight the zombie? (run/fight)");
+				runOrFightFridge = console.readLine();
+				console.clear();
+				if (runOrFightFridge.equalsIgnoreCase(arrayKitchen[4]))
+				{
+					console.drawImage(jpgDie, 0, 85, 640,420, null);
+					console.println("You were too slow, the zombie ate you. Run faster next time");
+					//themedie.start();
+					Thread.sleep(5000);
+				}
+				else if (runOrFightFridge.equalsIgnoreCase(arrayKitchen[5]))
+				{
+					console.drawImage(jpgDie, 0, 85, 640,420, null);
+					console.println("You're too weak. Join fitness. The zombie even said that you tasted bad because of all the fat ");
+					//theme.start();
+					Thread.sleep(5000);
+				}
+				else 
+				{
+					console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+					console.println("Please type in a valid input and play again");
+					Thread.sleep(3000);
+					choseUpstairs();
+				}
+
+			}
+			else
+			{
+				console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+				console.println("Please type in a valid input and play again");
+				Thread.sleep(3000);
+				choseUpstairs();
+			}
+		}
+		else if(lookFridgeOrPantry.equalsIgnoreCase(arrayKitchenPantry[0]))
+		{
+			console.drawImage(jpgKitchen, 0, 85, 640,420, null);
+			console.println("There is something lurking in the dark corner of the pantry, check it out or leave? (check/leave)");
+			pantryEatOrNot = console.readLine();
+			console.clear();
+			if (pantryEatOrNot.equalsIgnoreCase(arrayKitchenPantry[1]))
+			{
+				console.println("It was just a mouse!. The food on the shelf in non-perishable food. Do you want to visit the basement next or the roof? (basement/roof)");
+				basementOrRoof = console.readLine();
+				if (basementOrRoof.equalsIgnoreCase(arrayKitchenPantry[2]))
+				{
+					console.drawImage(jpgBasement, 0, 85, 640,420, null);
+
+					// you find keys, where to go now?
+					console.println("Congratulations, you found the keys. Proceed to the basement door or to the upstairs door? (basement/upstairs) ");
+					basementDoorOrUpstairsDoor = console.readLine();
+					if (basementDoorOrUpstairsDoor.equalsIgnoreCase(arrayKitchenPantry[3]))
+					{
+						console.println("Congratulations, you got out alive!!!");
+						console.drawImage(jpgLive, 0, 85, 640,420, null);
+						//themewin.start();
+						Thread.sleep(5000);
+						console.println(".........and then you got hit by a truck and died. Fail ");
+						console.println("thanx for trying");
+						Thread.sleep(1000);
+						console.drawImage(jpgDie, 0, 85, 640,420, null);
+						//themedie.start();
+
+					}
+					else if (basementDoorOrUpstairsDoor.equalsIgnoreCase(arrayKitchenPantry[4]))
+					{
+						console.println("You live!!!. Just kidding, a zombie ate you ");
+						//themedie.start();
+						Thread.sleep(5000);
+
+					}
+					else
+					{
+						console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+						console.println("Please type in a valid input and play again");
+						Thread.sleep(3000);
+						choseUpstairs();
+
+					}
+
+				}
+				else if(basementOrRoof.equalsIgnoreCase(arrayKitchenPantry[5])|| randomOne <= 6)
+				{
+					console.println("So close. You saw the keys and ran for them but tripped and fell down and broke your neck");
+					console.drawImage(jpgDie, 0, 85, 640,420, null);
+					//themedie.start();
+					Thread.sleep(5000);
+				}
+				else if(basementOrRoof.equalsIgnoreCase(arrayKitchenPantry[6])|| randomOne > 6)
+				{
+					console.drawImage(jpgDie, 0, 85, 640,420, null);
+
+					console.println("I dont like your shoes. So u slip down and die :)");
+					//themedie.start();
+					Thread.sleep(5000);
+				}
+				else 
+				{
+					console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+					console.println("Please type in a valid input and play again");
+					Thread.sleep(3000);
+					choseUpstairs();
+				}
+
+
+			}
+			else if	(pantryEatOrNot.equalsIgnoreCase(arrayKitchenPantry[7]))
+			{
+				console.clear();
+				console.drawImage(jpgZombies, 0, 85, 640,420, null);
+				console.println("There is a zombie blocking the doorway, run past him and hope he doesnt chase you or fight and hope you win? (run/fight)");
+				runOrFightPantry = console.readLine();
+				Thread.sleep(500);
+				if (runOrFightPantry.equalsIgnoreCase(arrayKitchenPantry[8]))
+				{
+
+					console.println("You were too slow, the zombie ate you. Run faster next time");
+					//theme.start();
+					Thread.sleep(500);
+					console.drawImage(jpgDie, 0, 85, 640,420, null);
+					Thread.sleep(5000);
+
+				}
+				else if (runOrFightPantry.equalsIgnoreCase(arrayKitchenPantry[9]) || randomTwo <=4)
+				{
+					console.drawImage(jpgDie, 0, 85, 640,420, null);
+					console.println("You're too weak. Join fitness, and oh yeah, the zombie ate you. He said you tasted delicious because of the lack of muscle ");
+					//theme.start();
+					Thread.sleep(5000);
+
+				}
+				else if (runOrFightPantry.equalsIgnoreCase(arrayKitchenPantry[10]) || randomTwo >=4)
+				{
+					console.println("Deeze muscles!! You killed a zombie, good for you");
+					//themegokuWin.start();
+					console.drawImage(jpgDie, 0, 85, 640,420, null);
+					Thread.sleep(5000);
+					console.println("... and then another zombie came and ate you");
+					//themegokuWin.start();
+					console.drawImage(jpgDie, 0, 85, 640,420, null);
+					Thread.sleep(8000);
+				}
+				else
+				{
+					console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+					console.println("Please type in a valid input and play again");
+					Thread.sleep(5000);
+
+				}
+				
+				
+				
+			}
+			else 
+			{
+				console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+				console.println("Please type in a valid input and play again");
+				Thread.sleep(3000);
+				choseUpstairs();
+			}
+
+
+
+
+
+
+
+
+		}
+		else
+		{
+			console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+			console.println("Please type in a valid input and play again");
+			Thread.sleep(3000);
+			choseUpstairs();
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
