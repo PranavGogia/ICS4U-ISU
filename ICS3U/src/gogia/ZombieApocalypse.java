@@ -15,7 +15,7 @@ import hsa_new.Console;
 public class ZombieApocalypse
 {
 
-	public static Console console = new Console();
+	public static Console console = new Console(25,90);
 	// conosle size if later needed 47,157
 	public static int keyChance = (int )(Math. random() * 10 + 1);
 	public static int showerCounter = 0;
@@ -48,8 +48,8 @@ public class ZombieApocalypse
 		console.setTextColor(Color.white);
 		console.clear();
 		
-		console.drawImage(jpgLoading, 0, 0, 640,420, null);
-		Thread.sleep(10000);
+		console.drawImage(jpgLoading, 0, 0, 725,495, null);
+		Thread.sleep(5000);
 
 		Clip themewin = AudioSystem.getClip(); 
 		Clip themedie = AudioSystem.getClip(); 
@@ -103,17 +103,17 @@ public class ZombieApocalypse
 		jpgSurvive = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/survive.jpg");
 
 		console.clear();
-		console.drawImage(jpgLoading, 0, 0, 640,420, null);
-		Thread.sleep(10000);
+		console.drawImage(jpgLoading, 0, 0, 725,495, null);
+		Thread.sleep(5000);
 
 		console.setTextBackgroundColor(Color.black);
 		console.setTextColor(Color.white);
 		console.clear();
 		console.println( " WELCOME TO MY ZOMBIE ADVENTURE. Mwah ha ha. Thou shalt not live ;)");
 		console.println("  ");	
-		console.drawImage(jpgTitlePage, 0, 85, 640,420, null);
-		Thread.sleep(1000);
-		console.drawImage(jpgTitlePage, 0, 85, 640,420, null);
+		console.drawImage(jpgTitlePage, 0, 85, 725,335, null);
+		Thread.sleep(500);
+		console.drawImage(jpgTitlePage, 0, 85, 725,335, null);
 		console.println("Would you like to play a scary game? (yes/no)");
 		playOrNotInput = console.readLine();
 		console.clear();
@@ -123,12 +123,13 @@ public class ZombieApocalypse
 		if (playOrNotInput.equalsIgnoreCase("yes"))
 		{
 			playOrNot = true;
+			lives = 2;
 		}
 		// else close console
 		else 
 		{
 			console.println("Sorry to hear that");
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			console.close();
 		}
 
@@ -138,7 +139,7 @@ public class ZombieApocalypse
 		if (playOrNot = true)
 		{
 			// display same image again to make it feel like its a gif
-			console.drawImage(jpgSurvive, 0, 85, 640,420, null);
+			console.drawImage(jpgSurvive, 0, 85, 725,335, null);
 			Thread.sleep(50);
 			console.clear();
 
@@ -146,7 +147,7 @@ public class ZombieApocalypse
 			Thread.sleep(50);
 			console.clear();
 
-			console.drawImage(jpgSurvive, 0, 85, 640,420, null);
+			console.drawImage(jpgSurvive, 0, 85, 725,335, null);
 			Thread.sleep(50);
 			console.clear();
 
@@ -154,7 +155,7 @@ public class ZombieApocalypse
 			Thread.sleep(50);
 			console.clear();
 
-			console.drawImage(jpgSurvive, 0, 85, 640,420, null);
+			console.drawImage(jpgSurvive, 0, 85, 725,335, null);
 			Thread.sleep(50);
 			console.clear();
 
@@ -162,7 +163,7 @@ public class ZombieApocalypse
 			Thread.sleep(50);
 			console.clear();
 
-			console.drawImage(jpgSurvive, 0, 85, 640,420, null);
+			console.drawImage(jpgSurvive, 0, 85, 725,335, null);
 			Thread.sleep(50);
 			console.clear();
 
@@ -170,16 +171,16 @@ public class ZombieApocalypse
 			Thread.sleep(50);
 			console.clear();
 
-			console.drawImage(jpgSurvive, 0, 85, 640,420, null);
+			console.drawImage(jpgSurvive, 0, 85, 725,335, null);
 			Thread.sleep(50);
 			console.clear();
 
 			console.println("Welcome Stranger, Please Enter Your Name");
-			console.drawImage(jpgTitlePage, 0, 85, 640,420, null);
+			console.drawImage(jpgTitlePage, 0, 85, 725,335, null);
 			name = console.readLine();
 			console.clear();
 
-			console.drawImage(jpgHauntedHouse, 0, 85, 640,420, null);
+			console.drawImage(jpgHauntedHouse, 0, 85, 725,335, null);
 			console.println( " You are in a creepy house and have no idea how you got there. You want to find out what you are doing here! Would you like to go upstairs or into the kitchen?(upstairs/kitchen) ");
 			goUpOrKitchen = console.readLine();
 			Thread.sleep(500);
@@ -196,7 +197,7 @@ public class ZombieApocalypse
 			else
 			{
 				console.println("You entered an invalid input. The game will now restart in order to punish you");
-				Thread.sleep(1000);
+				Thread.sleep(700);
 				playingMethod();
 			}
 
@@ -219,20 +220,20 @@ public class ZombieApocalypse
 		{//start of while loop at beginning
 
 			console.clear();
-			console.drawImage(jpgUpstairs, 0, 85, 640,420, null);
+			console.drawImage(jpgUpstairs, 0, 85, 725,335, null);
 			console.println("You walk up the stairs and reach the top.");
 			console.println("You see 2 doors: one to the bedroom and the other to the bathroom. Where do you search? (bedroom/bathroom)");
 			bedroom=console.readLine();
 			if (bedroom.equalsIgnoreCase(arrayUpstairs[1]))
 			{
 				console.clear();
-				console.drawImage(jpgBedroom, 0, 85, 640,420, null);
+				console.drawImage(jpgBedroom, 0, 85, 725,335, null);
 				console.println("You enter the bedroom and see something beside the bed. Do you dare to go check it out? (search/leave)");
 				leave=console.readLine();
 				if (leave.equalsIgnoreCase(arrayUpstairs[2]))
 				{
 					console.clear();
-					console.drawImage(jpgBedroom, 0, 85, 640,420, null);
+					console.drawImage(jpgBedroom, 0, 85, 725,335, null);
 					console.println("It was just a blanket lying on the ground.");
 					console.println("You see a ladder leading up to the attic; do you wish to enter the attic or keep searching the bedroom? (attic/search)");
 					attic= console.readLine();
@@ -240,20 +241,20 @@ public class ZombieApocalypse
 					if (attic.equalsIgnoreCase(arrayUpstairs[3]))
 					{
 						console.clear();
-						console.drawImage(jpgAttic, 0, 85, 640,420, null);
+						console.drawImage(jpgAttic, 0, 85, 725,335, null);
 						console.println("You find nothing of interest in the attic but start to find yourself becoming tired.");
 						console.println("Do you wish to rest first or leave immediately? (rest/leave)");
 						rest=console.readLine();
 						if (rest.equalsIgnoreCase(arrayUpstairs[4]))
 						{
 							console.clear();
-							console.drawImage(jpgBedroom, 0, 85, 640,420, null);
+							console.drawImage(jpgBedroom, 0, 85, 725,335, null);
 							console.println("You leave the attic and get to the bedroom door when you see a zombie behind you. You run down the stairs and into the (basement/backyard).");
 							backyard=console.readLine();
 							if(backyard.equalsIgnoreCase(arrayUpstairs[5]))
 							{
 								console.clear();
-								console.drawImage(jpgBasement, 0, 85, 640,420, null);
+								console.drawImage(jpgBasement, 0, 85, 725,335, null);
 								if(keyChance<=7)
 								{   console.clear();
 									console.println("While running from the zombie you manage to find a key.");
@@ -262,29 +263,31 @@ public class ZombieApocalypse
 									if(frontDoor.equalsIgnoreCase(arrayUpstairs[6]))
 									{
 										console.clear();
-										console.drawImage(jpgHauntedHouse, 0, 85, 640,420, null);
+										console.drawImage(jpgHauntedHouse, 0, 85, 725,335, null);
 										console.println("You slip past the zombie and run to the front door.");
 										console.println("You desperately try to unlock the door and barely manage to open the door before the zombie catches you.");
 										console.println("But you kick him and slam the door shut behind you; quickly leaving the house of horrors behind.");
 										console.clear();
 										Clip themewin = AudioSystem.getClip(); 
 										themewin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/win.wav"))); 
-										console.drawImage(jpgWin, 0, 85, 640,420, null);
+										console.drawImage(jpgWin, 0, 85, 725,335, null);
 										console.println("Congratulations, you won");
 										console.println("Would you like to play again(yes/no)");
 										playAgainOrNotThree= console.readLine();
 										if (playAgainOrNotThree.equalsIgnoreCase("yes"))
 										{
 											console.clear();
+											console.drawImage(jpgLive, 0, 85, 725,335, null);
 											console.println("Good to hear that. Maybe try to choose where you want to go a bit differently");
-											Thread.sleep(1000);
+											Thread.sleep(700);
 											playingMethod();
 										}
 										else if(playAgainOrNotThree.equalsIgnoreCase("no"))
 										{
 											console.clear();
-											console.println("Sorry to hear that. Well, you still won; good job");
-											Thread.sleep(1000);
+											console.drawImage(jpgLive, 0, 85, 725,335, null);
+											console.println("Sorry to hear that. Well, you still won; good job. Maybe next time");
+											Thread.sleep(700);
 											console.clear();
 
 										}
@@ -293,7 +296,7 @@ public class ZombieApocalypse
 											console.clear();
 											console.println("INVALID INPUT!!!!");
 											console.println("You dont deserve to play again. You are henceforth banished");
-											Thread.sleep(1000);
+											Thread.sleep(700);
 											console.clear();
 										}
 									}
@@ -301,10 +304,10 @@ public class ZombieApocalypse
 									else if(frontDoor.equalsIgnoreCase(arrayUpstairs[7]))
 									{
 										console.clear();
-										console.drawImage(jpgHauntedHouse, 0, 85, 640,420, null);
+										console.drawImage(jpgHauntedHouse, 0, 85, 725,335, null);
 										console.println("You run to the door and franticly try to unlock the door as the zombie slowly approaches.");
 										console.println("In your frenzy the key breaks in the lock and the zombie eats you before you can react.");
-										Thread.sleep(2000);
+										Thread.sleep(700);
 										dieUpstairs();
 									}
 									else 
@@ -317,7 +320,8 @@ public class ZombieApocalypse
 								else 
 								{
 									console.println("You fell down while running down the stirs and dislocated your neck. May your soul R.I.P. (Rest in Pieces)");
-									Thread.sleep(1000);
+									console.drawImage(jpgDie, 0, 85, 725,335, null);
+									Thread.sleep(800);
 									dieUpstairs();
 								}
 
@@ -326,10 +330,10 @@ public class ZombieApocalypse
 							{
 								console.clear();
 								//themeBackyard.start();
-								console.drawImage(jpgBackyard, 0, 85, 640,420, null);
+								console.drawImage(jpgBackyard, 0, 85, 725,335, null);
 								console.println("You run to the backdoor swinging it open and running out only to realise that there was not only one zombie...but a group");
 								console.println("They quickly jump on you before you have to chance to run back inside.");
-								Thread.sleep(2000);
+								Thread.sleep(1000);
 								dieUpstairs();
 
 							}
@@ -342,9 +346,9 @@ public class ZombieApocalypse
 						else if (rest.equalsIgnoreCase(arrayUpstairs[9]))
 						{
 							console.clear();
-							console.drawImage(jpgBedroom, 0, 85, 640,420, null);
+							console.drawImage(jpgBedroom, 0, 85, 725,335, null);
 							console.println("While you were sleeping a zombie found you and enjoyed a nice meal.");
-							Thread.sleep(2000);
+							Thread.sleep(900);
 							dieUpstairs();
 						}
 						else
@@ -356,9 +360,9 @@ public class ZombieApocalypse
 					else if (attic.equalsIgnoreCase(arrayUpstairs[10]))
 					{
 						console.clear();
-						console.drawImage(jpgBedroom, 0, 85, 640,420, null);
+						console.drawImage(jpgBedroom, 0, 85, 725,335, null);
 						console.println("You search the blanket to see if you can find anything useful. As you do a rotten hand jumps out at you! As it turned out there was a zombie under the blanket who quickly tore you to shreads.");
-						Thread.sleep(2000);
+						Thread.sleep(1000);
 						dieUpstairs();
 					}
 					else
@@ -370,9 +374,9 @@ public class ZombieApocalypse
 				else if (leave.equalsIgnoreCase(arrayUpstairs[11]))
 				{
 					console.clear();
-					console.drawImage(jpgBedroom, 0, 85, 640,420, null);
+					console.drawImage(jpgBedroom, 0, 85, 725,335, null);
 					console.println("As you turn to leave a body springs from beside the bed. It catches you off gaurd and takles you before you realise what is happening. You come to the realization that there was a zombie beside the bed as it rips through your throat.");
-					Thread.sleep(2000);
+					Thread.sleep(1000);
 					dieUpstairs();
 				}
 				else
@@ -386,13 +390,13 @@ public class ZombieApocalypse
 			else if(bedroom.equalsIgnoreCase(arrayUpstairsBathroom[0]))
 			{
 				console.clear();
-				console.drawImage(jpgBathroom, 0, 85, 640,420, null);
+				console.drawImage(jpgBathroom, 0, 85, 725,335, null);
 				console.println("You enter the bathroom and look around. there is nothing of note in there other than a fully functional shower. Would you like to leave or shower first? (leave/shower)");
 				bathroom=console.readLine();
 				if(bathroom.equalsIgnoreCase(arrayUpstairsBathroom[1]))
 				{
 					console.clear();
-					console.drawImage(jpgBathroom, 0, 85, 640,420, null);
+					console.drawImage(jpgBathroom, 0, 85, 725,335, null);
 					//themeShower.start();
 					console.println("You enter the shower and turn it on.");
 
@@ -402,7 +406,7 @@ public class ZombieApocalypse
 						console.println(" You feel refreshed and relaxed.Do you wish to keep showering or leave? (shower/leave)");
 						continueShowering=console.readLine();
 						console.clear();
-						console.drawImage(jpgBathroom, 0, 85, 640,420, null);
+						console.drawImage(jpgBathroom, 0, 85, 725,335, null);
 						if(continueShowering.equalsIgnoreCase("shower")) showerCounter++;
 
 					}while(showerCounter<3);
@@ -413,19 +417,20 @@ public class ZombieApocalypse
 					{
 						//themedie.start();
 						console.println("A zombie snuck up behind you while walking down the stairs. You fell down and it was not a soft landing.");
-						Thread.sleep(2000);
+						Thread.sleep(1000);
 						dieUpstairs();
 					}
 
 					else
 					{
-						console.println("When you reach the front door again you see a zombie at the top of the stairs. You run and start looking for somewhere to hide when you see a path to the basement and a back door. Where will you go?");
+						console.println("When you reach the front door again you see a zombie at the top of the stairs. You run and start looking for somewhere to hide ");
+						console.println("you see a path to the basement and a back door. Where will you go?(basement/back door)");
 						basement=console.readLine();
 
 						if(basement.equalsIgnoreCase(arrayUpstairsBathroom[2]))
 						{
 							console.clear();
-							console.drawImage(jpgBasement, 0, 85, 640,420, null);
+							console.drawImage(jpgBasement, 0, 85, 725,335, null);
 							if(keyChance<9)
 							{
 								console.println("While running from the zombie you manage to find a key.");
@@ -435,7 +440,7 @@ public class ZombieApocalypse
 								if(sideDoor.equalsIgnoreCase(arrayUpstairsBathroom[3]))
 								{
 									console.clear();
-									console.drawImage(jpgDoor, 0, 85, 640,420, null);
+									console.drawImage(jpgDoor, 0, 85, 725,335, null);
 									console.println("You slip past the zombie and run to the front door.");
 									console.println("You desperately try to unlock the door and barely manage to succeed before the zombie catches you.");
 									console.println("You leave quickly slamming the door shut behind you and quickly leave the house of horrors behind.");
@@ -444,10 +449,10 @@ public class ZombieApocalypse
 								else if (sideDoor.equalsIgnoreCase(arrayUpstairsBathroom[4]))
 								{
 									console.clear();
-									console.drawImage(jpgDoor, 0, 85, 640,420, null);
+									console.drawImage(jpgDoor, 0, 85, 725,335, null);
 									console.println("You run to the door and franticly try to unlock the door while the zombie approaches.");
 									console.println("In your frenzy the key breaks in the lock and the zombie eats you.");
-									Thread.sleep(2000);
+									Thread.sleep(1000);
 									dieUpstairs();
 
 								}
@@ -456,7 +461,7 @@ public class ZombieApocalypse
 							else
 							{
 								console.println("You enter the basement and find yourself trapped. The zombie finally catches up and makes a quick meal of you.");
-								Thread.sleep(2000);
+								Thread.sleep(1000);
 								dieUpstairs();
 							}
 
@@ -464,11 +469,11 @@ public class ZombieApocalypse
 						else if (basement.equalsIgnoreCase(arrayUpstairsBathroom[5]))
 						{
 							console.clear();
-							console.drawImage(jpgDoor, 0, 85, 640,420, null);
+							console.drawImage(jpgDoor, 0, 85, 725,335, null);
 							console.println("You run to the backdoor swinging it open and running out; only to realise that there was not only one zombie, but a whole group of them.");
 							
 							console.println("They quickly jump on you before you have to chance to react.");
-							Thread.sleep(2000);
+							Thread.sleep(1500);
 							dieUpstairs();
 						}
 						else
@@ -482,9 +487,9 @@ public class ZombieApocalypse
 				else if(bathroom.equalsIgnoreCase(arrayUpstairsBathroom[6]))
 				{
 					console.clear();
-					console.drawImage(jpgBathroom, 0, 85, 640,420, null);
+					console.drawImage(jpgBathroom, 0, 85, 725,335, null);
 					console.println("As you exit the bathroom a zombie that was walking by spots you and eats you.");
-					Thread.sleep(2000);
+					Thread.sleep(1000);
 					dieUpstairs();
 				}
 				else
@@ -507,15 +512,18 @@ public class ZombieApocalypse
 		playAgainOrNot = console.readLine();
 		if (playAgainOrNot.equalsIgnoreCase("yes"))
 		{
+			console.clear();
+			console.drawImage(jpgLive, 0, 85, 725,335, null);
 			console.println("Good to hear that");
-			Thread.sleep(1000);
+			console.println("Try to pick different options this time");
+			Thread.sleep(900);
 			playingMethod();
 			lives = 2;
 		}
 		else if (playAgainOrNot.equalsIgnoreCase("no"))
 		{
 			console.println("Sorry to hear that");
-			Thread.sleep(3000);
+			Thread.sleep(900);
 			console.close();
 		}
 		else 
@@ -540,13 +548,13 @@ public class ZombieApocalypse
 		{
 
 
-			console.drawImage(jpgKitchen, 0, 85, 640,420, null);
+			console.drawImage(jpgKitchen, 0, 85, 725,335, null);
 			console.println("You are hungry. There is a fridge in one corner and a pantry in another. Which one do you want to check?(fridge/pantry) ");
 			lookFridgeOrPantry = console.readLine();
 			console.clear();
 			if (lookFridgeOrPantry.equalsIgnoreCase(arrayKitchen[1]))
 			{
-				console.drawImage(jpgKitchen, 0, 85, 640,420, null);
+				console.drawImage(jpgKitchen, 0, 85, 725,335, null);
 				console.println("The food looks a bit old and might have gone bad, but you're very hungry. Would you like to try it? (yes/no)");
 				eat = console.readLine();
 				console.clear();
@@ -554,19 +562,19 @@ public class ZombieApocalypse
 				{
 					console.println("Sorry," + name + ", but the food was bad and you died :(." );
 					//themedie.start();
-					console.drawImage(jpgIdiot, 0, 85, 640,420, null);
-					Thread.sleep(2000);
+					console.drawImage(jpgIdiot, 0, 85, 725,335, null);
+					Thread.sleep(900);
 					dieKitchen();
 				}
 				else if (eat.equalsIgnoreCase(arrayKitchen[3]))
 				{
-					console.drawImage(jpgZombies, 0, 85, 640,420, null);
+					console.drawImage(jpgZombies, 0, 85, 725,335, null);
 					console.println("There is a zombie blocking the only entrance. Run away or fight the zombie? (run/fight)");
 					runOrFightFridge = console.readLine();
 					console.clear();
 					if (runOrFightFridge.equalsIgnoreCase(arrayKitchen[4]))
 					{
-						console.drawImage(jpgDie, 0, 85, 640,420, null);
+						console.drawImage(jpgDie, 0, 85, 725,335, null);
 						console.println("You were too slow, the zombie ate you. Run faster next time");
 						//themedie.start();
 						Thread.sleep(1000);
@@ -574,7 +582,7 @@ public class ZombieApocalypse
 					}
 					else if (runOrFightFridge.equalsIgnoreCase(arrayKitchen[5]))
 					{
-						console.drawImage(jpgDie, 0, 85, 640,420, null);
+						console.drawImage(jpgDie, 0, 85, 725,335, null);
 						console.println("You're too weak. Join fitness, and oh yeah, the zombie ate you. He said you tasted delicious because of al the fat in you. He personally prefers that over lean meat ");
 						//theme.start();
 						Thread.sleep(1000);
@@ -593,7 +601,7 @@ public class ZombieApocalypse
 			}
 			else if(lookFridgeOrPantry.equalsIgnoreCase(arrayKitchenPantry[0]))
 			{
-				console.drawImage(jpgKitchen, 0, 85, 640,420, null);
+				console.drawImage(jpgKitchen, 0, 85, 725,335, null);
 				console.println("There is something lurking in the dark corner of the pantry, check it out or leave? (check/leave)");
 				pantryEatOrNot = console.readLine();
 				console.clear();
@@ -603,7 +611,7 @@ public class ZombieApocalypse
 					basementOrRoof = console.readLine();
 					if (basementOrRoof.equalsIgnoreCase(arrayKitchenPantry[2]))
 					{
-						console.drawImage(jpgBasement, 0, 85, 640,420, null);
+						console.drawImage(jpgBasement, 0, 85, 725,335, null);
 
 						// you find keys, where to go now?
 						console.println("Congratulations, you found the keys. Proceed to the basement side door or to the upstairs door? (basement/upstairs) ");
@@ -611,7 +619,7 @@ public class ZombieApocalypse
 						if (basementDoorOrUpstairsDoor.equalsIgnoreCase(arrayKitchenPantry[3]))
 						{
 							console.println("Congratulations, you got out alive!!!");
-							console.drawImage(jpgLive, 0, 85, 640,420, null);
+							console.drawImage(jpgLive, 0, 85, 725,335, null);
 							//themewin.start();
 							Thread.sleep(500);
 							console.println(".........and then you got hit by a truck and died. Fail ");
@@ -628,7 +636,7 @@ public class ZombieApocalypse
 							Thread.sleep(500);
 							console.println("Just kidding, a zombie ate you as you exited. ");
 							//themedie.start();
-							Thread.sleep(2000);
+							Thread.sleep(1000);
 							dieKitchen();
 
 						}
@@ -642,18 +650,18 @@ public class ZombieApocalypse
 					else if(basementOrRoof.equalsIgnoreCase(arrayKitchenPantry[5])|| randomOne <= 6)
 					{
 						console.println("So close. You saw the keys and ran for them but tripped, fell down, and broke your neck");
-						console.drawImage(jpgDie, 0, 85, 640,420, null);
+						console.drawImage(jpgDie, 0, 85, 725,335, null);
 						//themedie.start();
-						Thread.sleep(2000);
+						Thread.sleep(1000);
 						dieKitchen();
 					}
 					else if(basementOrRoof.equalsIgnoreCase(arrayKitchenPantry[6])|| randomOne > 6)
 					{
-						console.drawImage(jpgDie, 0, 85, 640,420, null);
+						console.drawImage(jpgDie, 0, 85, 725,335, null);
 
 						console.println("I dont like your shoes. So u slip down and die :)");
 						//themedie.start();
-						Thread.sleep(2000);
+						Thread.sleep(1000);
 						console.println("Perks of being the creator ;)");
 						Thread.sleep(500);
 						dieKitchen();
@@ -668,27 +676,25 @@ public class ZombieApocalypse
 				else if	(pantryEatOrNot.equalsIgnoreCase(arrayKitchenPantry[7]))
 				{
 					console.clear();
-					console.drawImage(jpgZombies, 0, 85, 640,420, null);
+					console.drawImage(jpgZombies, 0, 85, 725,335, null);
 					console.println("There is a zombie blocking the doorway, run past him and hope he doesnt chase you or fight and win? (run/fight)");
 					runOrFightPantry = console.readLine();
-					Thread.sleep(500);
+					
 					if (runOrFightPantry.equalsIgnoreCase(arrayKitchenPantry[8]))
 					{
 
 						console.println("You were too slow, the zombie ate you. Run faster next time");
-						//theme.start();
-						Thread.sleep(500);
-						console.drawImage(jpgDie, 0, 85, 640,420, null);
+						console.drawImage(jpgDie, 0, 85, 725,335, null);
 						Thread.sleep(1000);
 						dieKitchen();
 
 					}
 					else if (runOrFightPantry.equalsIgnoreCase(arrayKitchenPantry[9]) || randomTwo <=4)
 					{
-						console.drawImage(jpgDie, 0, 85, 640,420, null);
+						console.drawImage(jpgDie, 0, 85, 725,335, null);
 						console.println("You're too weak. Join fitness, and oh yeah, the zombie ate you. He said you tasted delicious because of al the fat in you. He personally prefers that over lean meat ");
 						//theme.start();
-						Thread.sleep(2000);
+						Thread.sleep(1000);
 						dieKitchen();
 
 					}
@@ -696,12 +702,12 @@ public class ZombieApocalypse
 					{
 						console.println("Deeze muscles!! You killed a zombie, good for you");
 						//themegokuWin.start();
-						console.drawImage(jpgGokuWin, 0, 85, 640,420, null);
-						Thread.sleep(2000);
-						console.drawImage(jpgDie, 0, 85, 640,420, null);
-						console.println("... and then another zombie came and ate you");
+						console.drawImage(jpgGokuWin, 0, 85, 725,335, null);
+						Thread.sleep(1000);
+						console.drawImage(jpgDie, 0, 85, 725,335, null);
+						console.println("... and then another zombie came and killed while you partied. Life lesson: check for zombies before you start partying  ");
 						//themegokuWin.start();
-						console.drawImage(jpgDie, 0, 85, 640,420, null);
+						console.drawImage(jpgDie, 0, 85, 725,335, null);
 						Thread.sleep(2000);
 						dieKitchen();
 					}
@@ -737,7 +743,10 @@ public class ZombieApocalypse
 		playAgainOrNotTwo = console.readLine();
 		if (playAgainOrNotTwo.equalsIgnoreCase("yes"))
 		{
+			console.clear();
+			console.drawImage(jpgLive, 0, 85, 725,335, null);
 			console.println("Good to hear that");
+			console.println("Try to make different slections this time");
 			Thread.sleep(1000);
 			playingMethod();
 			lives = 2;
@@ -765,7 +774,8 @@ public class ZombieApocalypse
 
 	public static void invalidKitchen() throws InterruptedException, LineUnavailableException, IOException, UnsupportedAudioFileException
 	{// start of method died
-		console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+		console.clear();
+		console.drawImage(jpgIdiot, 0, 85, 725,335, null);
 		console.println("Please type in a valid input and play again");
 		Thread.sleep(3000);
 		choseUpstairs();
@@ -774,7 +784,8 @@ public class ZombieApocalypse
 
 	public static void invalidUpstairs() throws InterruptedException, LineUnavailableException, IOException, UnsupportedAudioFileException
 	{// start of method died
-		console.drawImage(jpgIdiot, 0, 85, 640,420, null);
+		console.clear();
+		console.drawImage(jpgIdiot, 0, 85, 725,335, null);
 		console.println("Please type in a valid input and play again");
 		Thread.sleep(3000);
 		choseKitchen();
@@ -787,7 +798,7 @@ public class ZombieApocalypse
 		if (lives == 1)
 		{
 		console.clear();
-		console.drawImage(jpgDie, 0, 85, 640,420, null);
+		console.drawImage(jpgDie, 0, 85, 725,335, null);
 		console.println("You died. You now only have 1 life left and will now be transported Upstairs by some mysterious power ");
 		Thread.sleep(3000);
 		console.clear();
@@ -806,7 +817,7 @@ public class ZombieApocalypse
 		if (lives == 1)
 		{
 		console.clear();
-		console.drawImage(jpgDie, 0, 85, 640,420, null);
+		console.drawImage(jpgDie, 0, 85, 725,335, null);
 		console.println("You died. You now only have 1 life left and will now be transported to the Kitchen by some mysterious power ");
 		Thread.sleep(3000);
 		console.clear();
