@@ -91,11 +91,22 @@ public class ZombieApocalypse
 
 	public static void playingMethod() throws InterruptedException, LineUnavailableException, IOException, UnsupportedAudioFileException
 	{
-
-
-		//theme.start();
+		Clip themewin = AudioSystem.getClip(); 
+		Clip themedie = AudioSystem.getClip(); 
+		Clip themegokuWin = AudioSystem.getClip();
+		Clip themeShower = AudioSystem.getClip();
+		Clip themeBackyard = AudioSystem.getClip();	
 		Clip theme = AudioSystem.getClip(); 
+		
 		theme.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/creepy.wav"))); 
+		themewin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/win.wav"))); 
+		themedie.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/die.wav")));
+		themegokuWin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/gokuWin.wav")));
+		themeShower.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/shower.wav")));
+		themeBackyard.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/backyard.wav")));
+
+		theme.start();
+		
 
 		jpgLoading = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/loading.jpg");
 		jpgLoadingDone = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/loadingDOne.jpg");
@@ -126,13 +137,18 @@ public class ZombieApocalypse
 			lives = 2;
 		}
 		// else close console
-		else 
+		else if (playOrNotInput.equalsIgnoreCase("no"))
 		{
 			console.println("Sorry to hear that");
 			Thread.sleep(1000);
 			console.close();
 		}
-
+		else
+		{
+			console.println("Type properly.You must now start the game again ");
+			Thread.sleep(1000);
+			playingMethod();
+		}
 
 
 
@@ -196,6 +212,8 @@ public class ZombieApocalypse
 			}
 			else
 			{
+				console.clear();
+				console.drawImage(jpgIdiot, 0, 85, 725,335, null);
 				console.println("You entered an invalid input. The game will now restart in order to punish you");
 				Thread.sleep(700);
 				playingMethod();
@@ -209,9 +227,21 @@ public class ZombieApocalypse
 	public static void choseUpstairs() throws InterruptedException, LineUnavailableException, IOException, UnsupportedAudioFileException
 	{// start of method upstairs
 
+		Clip themewin = AudioSystem.getClip(); 
+		Clip themedie = AudioSystem.getClip(); 
+		Clip themegokuWin = AudioSystem.getClip();
+		Clip themeShower = AudioSystem.getClip();
+		Clip themeBackyard = AudioSystem.getClip();	
 		Clip theme = AudioSystem.getClip(); 
+		
 		theme.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/creepy.wav"))); 
+		themewin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/win.wav"))); 
+		themedie.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/die.wav")));
+		themegokuWin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/gokuWin.wav")));
+		themeShower.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/shower.wav")));
+		themeBackyard.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/backyard.wav")));
 
+		theme.start();
 		if (lives <0)
 		{
 			lives = 2;
@@ -257,6 +287,7 @@ public class ZombieApocalypse
 								console.drawImage(jpgBasement, 0, 85, 725,335, null);
 								if(keyChance<=7)
 								{   console.clear();
+								console.drawImage(jpgHauntedHouse, 0, 85, 725,335, null);
 									console.println("While running from the zombie you manage to find a key.");
 									console.println("Will you try to use it on the front door or the side door? (front door/side door)");
 									frontDoor=console.readLine();
@@ -268,8 +299,7 @@ public class ZombieApocalypse
 										console.println("You desperately try to unlock the door and barely manage to open the door before the zombie catches you.");
 										console.println("But you kick him and slam the door shut behind you; quickly leaving the house of horrors behind.");
 										console.clear();
-										Clip themewin = AudioSystem.getClip(); 
-										themewin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/win.wav"))); 
+										themewin.start();
 										console.drawImage(jpgWin, 0, 85, 725,335, null);
 										console.println("Congratulations, you won");
 										console.println("Would you like to play again(yes/no)");
@@ -294,6 +324,7 @@ public class ZombieApocalypse
 										else 
 										{
 											console.clear();
+											console.drawImage(jpgIdiot, 0, 85, 725,335, null);
 											console.println("INVALID INPUT!!!!");
 											console.println("You dont deserve to play again. You are henceforth banished");
 											Thread.sleep(700);
@@ -319,6 +350,8 @@ public class ZombieApocalypse
 
 								else 
 								{
+									console.clear();
+									console.drawImage(jpgDie, 0, 85, 725,335, null);
 									console.println("You fell down while running down the stirs and dislocated your neck. May your soul R.I.P. (Rest in Pieces)");
 									console.drawImage(jpgDie, 0, 85, 725,335, null);
 									Thread.sleep(800);
@@ -329,7 +362,7 @@ public class ZombieApocalypse
 							else if (backyard.equalsIgnoreCase(arrayUpstairs[8]))
 							{
 								console.clear();
-								//themeBackyard.start();
+								themeBackyard.start();
 								console.drawImage(jpgBackyard, 0, 85, 725,335, null);
 								console.println("You run to the backdoor swinging it open and running out only to realise that there was not only one zombie...but a group");
 								console.println("They quickly jump on you before you have to chance to run back inside.");
@@ -397,25 +430,45 @@ public class ZombieApocalypse
 				{
 					console.clear();
 					console.drawImage(jpgBathroom, 0, 85, 725,335, null);
-					//themeShower.start();
+					themeShower.start();
 					console.println("You enter the shower and turn it on.");
 
 					// do while loop. If person picks shower again more than 2 times then they die
 					do
 					{
+						console.clear();
+						console.drawImage(jpgBathroom, 0, 85, 725,335, null);
 						console.println(" You feel refreshed and relaxed.Do you wish to keep showering or leave? (shower/leave)");
 						continueShowering=console.readLine();
 						console.clear();
-						console.drawImage(jpgBathroom, 0, 85, 725,335, null);
-						if(continueShowering.equalsIgnoreCase("shower")) showerCounter++;
-
+						if(continueShowering.equalsIgnoreCase(arrayUpstairsBathroom[1]))
+						{
+							showerCounter++;
+						}
+						else if(continueShowering.equalsIgnoreCase("leave"))
+						{
+							console.clear();
+							console.drawImage(jpgDie, 0, 85, 725,335, null);
+							console.println("A zombie snuck up behind you while you were leaving. You were still wet, so you slipped and broke your neck. On the bright side, at least you didnt have to witness the zombie eating you.");
+							Thread.sleep(1000);
+							dieUpstairs();
+						}
+						else 
+						{
+							invalidUpstairs();
+						}
+						
+						
+						
 					}while(showerCounter<3);
-					//themeShower.start();
+					themeShower.start();
 					console.println("you leave the shower and walk back down the stairs");
 
 					if(showerCounter<3)
 					{
-						//themedie.start();
+						themedie.start();
+						console.clear();
+						console.drawImage(jpgDie, 0, 85, 725,335, null);
 						console.println("A zombie snuck up behind you while walking down the stairs. You fell down and it was not a soft landing.");
 						Thread.sleep(1000);
 						dieUpstairs();
@@ -423,6 +476,8 @@ public class ZombieApocalypse
 
 					else
 					{
+						console.clear();
+						console.drawImage(jpgDoor, 0, 85, 725,335, null);
 						console.println("When you reach the front door again you see a zombie at the top of the stairs. You run and start looking for somewhere to hide ");
 						console.println("you see a path to the basement and a back door. Where will you go?(basement/back door)");
 						basement=console.readLine();
@@ -433,6 +488,8 @@ public class ZombieApocalypse
 							console.drawImage(jpgBasement, 0, 85, 725,335, null);
 							if(keyChance<9)
 							{
+								console.clear();
+								console.drawImage(jpgBasement, 0, 85, 725,335, null);
 								console.println("While running from the zombie you manage to find a key.");
 								console.println("Will you try to use it on the front door or the side door? (front door/side door)");
 								sideDoor=console.readLine();
@@ -460,6 +517,9 @@ public class ZombieApocalypse
 							}
 							else
 							{
+								console.clear();
+							console.drawImage(jpgBasement, 0, 85, 725,335, null);
+								
 								console.println("You enter the basement and find yourself trapped. The zombie finally catches up and makes a quick meal of you.");
 								Thread.sleep(1000);
 								dieUpstairs();
@@ -522,6 +582,8 @@ public class ZombieApocalypse
 		}
 		else if (playAgainOrNot.equalsIgnoreCase("no"))
 		{
+			console.clear();
+			console.drawImage(jpgWin, 0, 85, 725,335, null);
 			console.println("Sorry to hear that");
 			Thread.sleep(900);
 			console.close();
@@ -538,7 +600,19 @@ public class ZombieApocalypse
 
 	public static void choseKitchen() throws InterruptedException, LineUnavailableException, IOException, UnsupportedAudioFileException
 	{// start of method kitchen
-
+		Clip themewin = AudioSystem.getClip(); 
+		Clip themedie = AudioSystem.getClip(); 
+		Clip themegokuWin = AudioSystem.getClip();
+		Clip themeShower = AudioSystem.getClip();
+		Clip themeBackyard = AudioSystem.getClip();	
+		Clip theme = AudioSystem.getClip(); 
+		
+		theme.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/creepy.wav"))); 
+		themewin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/win.wav"))); 
+		themedie.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/die.wav")));
+		themegokuWin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/gokuWin.wav")));
+		themeShower.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/shower.wav")));
+		themeBackyard.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/backyard.wav")));
 		
 		if (lives <0)
 		{
@@ -547,22 +621,24 @@ public class ZombieApocalypse
 		while (lives >0)
 		{
 
-
+console.clear();
 			console.drawImage(jpgKitchen, 0, 85, 725,335, null);
 			console.println("You are hungry. There is a fridge in one corner and a pantry in another. Which one do you want to check?(fridge/pantry) ");
 			lookFridgeOrPantry = console.readLine();
 			console.clear();
 			if (lookFridgeOrPantry.equalsIgnoreCase(arrayKitchen[1]))
 			{
+				console.clear();
 				console.drawImage(jpgKitchen, 0, 85, 725,335, null);
 				console.println("The food looks a bit old and might have gone bad, but you're very hungry. Would you like to try it? (yes/no)");
 				eat = console.readLine();
 				console.clear();
 				if (eat.equalsIgnoreCase(arrayKitchen[2]))
 				{
+					console.clear();
+					console.drawImage(jpgDie, 0, 85, 725,335, null);
 					console.println("Sorry," + name + ", but the food was bad and you died :(." );
-					//themedie.start();
-					console.drawImage(jpgIdiot, 0, 85, 725,335, null);
+					themedie.start();
 					Thread.sleep(900);
 					dieKitchen();
 				}
@@ -576,7 +652,7 @@ public class ZombieApocalypse
 					{
 						console.drawImage(jpgDie, 0, 85, 725,335, null);
 						console.println("You were too slow, the zombie ate you. Run faster next time");
-						//themedie.start();
+						themedie.start();
 						Thread.sleep(1000);
 						dieKitchen();
 					}
@@ -584,7 +660,7 @@ public class ZombieApocalypse
 					{
 						console.drawImage(jpgDie, 0, 85, 725,335, null);
 						console.println("You're too weak. Join fitness, and oh yeah, the zombie ate you. He said you tasted delicious because of al the fat in you. He personally prefers that over lean meat ");
-						//theme.start();
+						themedie.start();
 						Thread.sleep(1000);
 						dieKitchen();
 					}
@@ -601,41 +677,48 @@ public class ZombieApocalypse
 			}
 			else if(lookFridgeOrPantry.equalsIgnoreCase(arrayKitchenPantry[0]))
 			{
+				console.clear();
 				console.drawImage(jpgKitchen, 0, 85, 725,335, null);
 				console.println("There is something lurking in the dark corner of the pantry, check it out or leave? (check/leave)");
 				pantryEatOrNot = console.readLine();
 				console.clear();
 				if (pantryEatOrNot.equalsIgnoreCase(arrayKitchenPantry[1]))
 				{
+					console.clear();
+					console.drawImage(jpgKitchen, 0, 85, 725,335, null);
 					console.println("It was just a mouse!. The food on the shelf in non-perishable food. Do you want to visit the basement next or the roof? (basement/roof)");
 					basementOrRoof = console.readLine();
 					if (basementOrRoof.equalsIgnoreCase(arrayKitchenPantry[2]))
 					{
-						console.drawImage(jpgBasement, 0, 85, 725,335, null);
 
 						// you find keys, where to go now?
+						console.clear();
+						console.drawImage(jpgBasement, 0, 85, 725,335, null);
 						console.println("Congratulations, you found the keys. Proceed to the basement side door or to the upstairs door? (basement/upstairs) ");
 						basementDoorOrUpstairsDoor = console.readLine();
 						if (basementDoorOrUpstairsDoor.equalsIgnoreCase(arrayKitchenPantry[3]))
 						{
+							console.clear();
 							console.println("Congratulations, you got out alive!!!");
 							console.drawImage(jpgLive, 0, 85, 725,335, null);
-							//themewin.start();
+							themewin.start();
 							Thread.sleep(500);
 							console.println(".........and then you got hit by a truck and died. Fail ");
 							console.println(" Fail ");
 							console.println("But, thanx for trying");
 							Thread.sleep(500);
 							dieKitchen();
-							//themedie.start();
+							themedie.start();
 
 						}
 						else if (basementDoorOrUpstairsDoor.equalsIgnoreCase(arrayKitchenPantry[4]))
 						{
+							console.clear();
+							console.drawImage(jpgDie, 0, 85, 725,335, null);
 							console.println("You live!!!");
 							Thread.sleep(500);
 							console.println("Just kidding, a zombie ate you as you exited. ");
-							//themedie.start();
+							themedie.start();
 							Thread.sleep(1000);
 							dieKitchen();
 
@@ -649,18 +732,20 @@ public class ZombieApocalypse
 					}
 					else if(basementOrRoof.equalsIgnoreCase(arrayKitchenPantry[5])|| randomOne <= 6)
 					{
+						console.clear();
 						console.println("So close. You saw the keys and ran for them but tripped, fell down, and broke your neck");
 						console.drawImage(jpgDie, 0, 85, 725,335, null);
-						//themedie.start();
+						themedie.start();
 						Thread.sleep(1000);
 						dieKitchen();
 					}
 					else if(basementOrRoof.equalsIgnoreCase(arrayKitchenPantry[6])|| randomOne > 6)
 					{
-						console.drawImage(jpgDie, 0, 85, 725,335, null);
-
+						console.clear();
+						console.drawImage(jpgHauntedHouse, 0, 85, 725,335, null);
+						console.clear();
 						console.println("I dont like your shoes. So u slip down and die :)");
-						//themedie.start();
+						themedie.start();
 						Thread.sleep(1000);
 						console.println("Perks of being the creator ;)");
 						Thread.sleep(500);
@@ -682,7 +767,7 @@ public class ZombieApocalypse
 					
 					if (runOrFightPantry.equalsIgnoreCase(arrayKitchenPantry[8]))
 					{
-
+						console.clear();
 						console.println("You were too slow, the zombie ate you. Run faster next time");
 						console.drawImage(jpgDie, 0, 85, 725,335, null);
 						Thread.sleep(1000);
@@ -691,22 +776,24 @@ public class ZombieApocalypse
 					}
 					else if (runOrFightPantry.equalsIgnoreCase(arrayKitchenPantry[9]) || randomTwo <=4)
 					{
+						console.clear();
 						console.drawImage(jpgDie, 0, 85, 725,335, null);
 						console.println("You're too weak. Join fitness, and oh yeah, the zombie ate you. He said you tasted delicious because of al the fat in you. He personally prefers that over lean meat ");
-						//theme.start();
+						theme.start();
 						Thread.sleep(1000);
 						dieKitchen();
 
 					}
 					else if (runOrFightPantry.equalsIgnoreCase(arrayKitchenPantry[10]) || randomTwo >=4)
 					{
+						console.clear();
 						console.println("Deeze muscles!! You killed a zombie, good for you");
-						//themegokuWin.start();
+						themegokuWin.start();
 						console.drawImage(jpgGokuWin, 0, 85, 725,335, null);
 						Thread.sleep(1000);
 						console.drawImage(jpgDie, 0, 85, 725,335, null);
 						console.println("... and then another zombie came and killed while you partied. Life lesson: check for zombies before you start partying  ");
-						//themegokuWin.start();
+						themedie.start();
 						console.drawImage(jpgDie, 0, 85, 725,335, null);
 						Thread.sleep(2000);
 						dieKitchen();
