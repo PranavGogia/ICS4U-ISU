@@ -45,7 +45,6 @@ public class AdventureAssignmentNew {
 		int randomA3 = (int )(Math. random() * 100 + 1);
 		double keyChance= Math.random()*10+1;
 		int showerCounter = 0;
-		int lives = 2;
 
 		//setting images
 		Image jpgTitlePage, jpghauntedHouse, jpgkitchen, jpglive, jpgbasement, jpgidiot, jpgdie, jpgrun, jpgsurvive, jpgzombies, jpggokuWin, jpgwin, jpgloading, jpgloadingDone, jpgquestion;
@@ -55,7 +54,7 @@ public class AdventureAssignmentNew {
 		c.setTextBackgroundColor(Color.black);
 		c.setTextColor(Color.white);
 		c.clear();
-		
+
 		//loading startup images
 		theme.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/creepy.wav"))); 
 		jpgloading = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/loading.jpg");
@@ -122,7 +121,7 @@ public class AdventureAssignmentNew {
 		{
 
 
-		
+
 
 			// display same image again to make it feel like its a gif
 			c.drawImage(jpgsurvive, 0, 85, 640,420, null);
@@ -255,14 +254,14 @@ public class AdventureAssignmentNew {
 											Thread.sleep(4000);
 											playGameOrNot = false;
 										}
-									
+
 										else
 										{
 											c.println("You enter the basement and find yourself trapped. The zombie finally catches up and makes a quick meal of you.");
 											Thread.sleep(4000);
 											playGameOrNot = false;
 										}
-								}
+									}
 									else if(backyard.equalsIgnoreCase("backyard"));
 									{
 										c.clear();
@@ -317,7 +316,7 @@ public class AdventureAssignmentNew {
 							c.drawImage(jpgbathroom, 0, 85, 640,420, null);
 							themeShower.start();
 							c.println("You enter the shower and turn it on.");
-							
+
 							// do while loop. If person picks shower again more than 2 times then they die
 							do
 							{
@@ -441,8 +440,8 @@ public class AdventureAssignmentNew {
 					// if try food
 					if (eat.equalsIgnoreCase("yes"))
 					{
-						lives = lives - 1;
-						c.println("Sorry, the food was bad and you died :(." + name +  ", You have " + lives + " lives left ");
+
+						c.println("Sorry, the food was bad and you died :(." + name +  ", You have "  + " lives left ");
 						themedie.start();
 						c.drawImage(jpgidiot, 0, 85, 640,420, null);
 						Thread.sleep(5000);
@@ -506,7 +505,7 @@ public class AdventureAssignmentNew {
 						if (basementOrRoof.equalsIgnoreCase("basement"))
 						{
 							c.drawImage(jpgbasement, 0, 85, 640,420, null);
-							
+
 							// you find keys, where to go now?
 							c.println("Congratulations, you found the keys. Proceed to the basement door or to the upstairs door? (basement/upstairs) ");
 							basementDoorOrUpstairsDoor = c.readLine();

@@ -1,0 +1,36 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class dmpg16b2 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		
+		int counter=0;
+		
+		String[] tokens = in.readLine().split(" ");
+		int a = Integer.parseInt(tokens[0]);
+		for (int i=a;i!=0;i--)
+		{
+			String[] show = in.readLine().split(" ");
+			int b = Integer.parseInt(show[0]);
+			int c = Integer.parseInt(show[1]);
+			for (int z=b;z!=0;z--)
+			{
+				String[] tell = in.readLine().split(" ");
+				int d = Integer.parseInt(tell[0]);
+				if (d>c)
+				{
+					counter++;
+				}
+				
+				double blah=Math.sqrt((counter-c))*100.00;
+				
+				System.out.println("Bob wins $"+blah+" at IOI!");
+			}
+		}
+
+	}
+
+}
