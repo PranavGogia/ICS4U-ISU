@@ -49,7 +49,7 @@ public class ZombieApocalypse// public class ZombieApocalypse begins
 		//two arrays. One for all the answers and comparing while the other is for all the options chosen
 
 		// loads the loading image
-		jpgLoading = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/loading.jpg");
+		jpgLoading = Toolkit.getDefaultToolkit().getImage("resource/loading.jpg");
 		// colours the console background black, makes the text colour white and the clear console applies it
 		console.setTextBackgroundColor(Color.black);
 		console.setTextColor(Color.white);
@@ -64,28 +64,28 @@ public class ZombieApocalypse// public class ZombieApocalypse begins
 		Clip themeShower = AudioSystem.getClip();
 		Clip themeBackyard = AudioSystem.getClip();	
 		// loads all the audio files
-		themewin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/win.wav"))); 
-		themedie.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/die.wav")));
-		themegokuWin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/gokuWin.wav")));
-		themeShower.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/shower.wav")));
-		themeBackyard.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/backyard.wav")));
+		themewin.open(AudioSystem.getAudioInputStream(new File("resource/win.wav"))); 
+		themedie.open(AudioSystem.getAudioInputStream(new File("resource/die.wav")));
+		themegokuWin.open(AudioSystem.getAudioInputStream(new File("resource/gokuWin.wav")));
+		themeShower.open(AudioSystem.getAudioInputStream(new File("resource/shower.wav")));
+		themeBackyard.open(AudioSystem.getAudioInputStream(new File("resource/backyard.wav")));
 		// loads all the images
-		jpgUpstairs = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/upstairs.jpg");
-		jpgBedroom = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/bedroom.jpg");
-		jpgAttic = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/attic.jpg");
-		jpgBathroom = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/bathroom.jpg");
-		jpgDoor = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/door.jpg");
-		jpgBackyard = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/backyard.jpg");
-		jpgHauntedHouse = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/hauntedHouse.jpg");
-		jpgKitchen = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/kitchen.jpg");
-		jpgLive = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/live.jpg");
-		jpgBasement = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/basement.jpg");
-		jpgIdiot = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/idiot.jpg");
-		jpgDie = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/die.jpg");
-		jpgRun = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/run.jpg");
-		jpgZombies = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/zombies.jpg");
-		jpgGokuWin = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/gokuWin.jpg");
-		jpgWin = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/win.jpg");
+		jpgUpstairs = Toolkit.getDefaultToolkit().getImage("resource/upstairs.jpg");
+		jpgBedroom = Toolkit.getDefaultToolkit().getImage("resource/bedroom.jpg");
+		jpgAttic = Toolkit.getDefaultToolkit().getImage("resource/attic.jpg");
+		jpgBathroom = Toolkit.getDefaultToolkit().getImage("resource/bathroom.jpg");
+		jpgDoor = Toolkit.getDefaultToolkit().getImage("resource/door.jpg");
+		jpgBackyard = Toolkit.getDefaultToolkit().getImage("resource/backyard.jpg");
+		jpgHauntedHouse = Toolkit.getDefaultToolkit().getImage("resource/hauntedHouse.jpg");
+		jpgKitchen = Toolkit.getDefaultToolkit().getImage("resource/kitchen.jpg");
+		jpgLive = Toolkit.getDefaultToolkit().getImage("resource/live.jpg");
+		jpgBasement = Toolkit.getDefaultToolkit().getImage("resource/basement.jpg");
+		jpgIdiot = Toolkit.getDefaultToolkit().getImage("resource/idiot.jpg");
+		jpgDie = Toolkit.getDefaultToolkit().getImage("resource/die.jpg");
+		jpgRun = Toolkit.getDefaultToolkit().getImage("resource/run.jpg");
+		jpgZombies = Toolkit.getDefaultToolkit().getImage("resource/zombies.jpg");
+		jpgGokuWin = Toolkit.getDefaultToolkit().getImage("resource/gokuWin.jpg");
+		jpgWin = Toolkit.getDefaultToolkit().getImage("resource/win.jpg");
 
 
 		// after loading it calls the playing method and begins the game
@@ -108,19 +108,19 @@ public class ZombieApocalypse// public class ZombieApocalypse begins
 		Clip themeBackyard = AudioSystem.getClip();	
 		Clip theme = AudioSystem.getClip(); 
 		// calls the audio
-		theme.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/creepy.wav"))); 
-		themewin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/win.wav"))); 
-		themedie.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/die.wav")));
-		themegokuWin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/gokuWin.wav")));
-		themeShower.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/shower.wav")));
-		themeBackyard.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/backyard.wav")));
+		theme.open(AudioSystem.getAudioInputStream(new File("resource/creepy.wav"))); 
+		themewin.open(AudioSystem.getAudioInputStream(new File("resource/win.wav"))); 
+		themedie.open(AudioSystem.getAudioInputStream(new File("resource/die.wav")));
+		themegokuWin.open(AudioSystem.getAudioInputStream(new File("resource/gokuWin.wav")));
+		themeShower.open(AudioSystem.getAudioInputStream(new File("resource/shower.wav")));
+		themeBackyard.open(AudioSystem.getAudioInputStream(new File("resource/backyard.wav")));
 		// starts the main theme snong
 		theme.start();
 		// calls other images
-		jpgLoading = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/loading.jpg");
-		jpgLoadingDone = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/loadingDOne.jpg");
-		jpgTitlePage = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/titlePage.jpg");
-		jpgSurvive = Toolkit.getDefaultToolkit().getImage("H:/git/ICS3U/ICS3U/resource/survive.jpg");
+		jpgLoading = Toolkit.getDefaultToolkit().getImage("resource/loading.jpg");
+		jpgLoadingDone = Toolkit.getDefaultToolkit().getImage("resource/loadingDOne.jpg");
+		jpgTitlePage = Toolkit.getDefaultToolkit().getImage("resource/titlePage.jpg");
+		jpgSurvive = Toolkit.getDefaultToolkit().getImage("resource/survive.jpg");
 		// clears the console and displays the loading image
 		console.clear();
 		console.drawImage(jpgLoading, 0, 0, 725,495, null);
@@ -252,12 +252,12 @@ public class ZombieApocalypse// public class ZombieApocalypse begins
 		Clip themeShower = AudioSystem.getClip();
 		Clip themeBackyard = AudioSystem.getClip();	
 		Clip theme = AudioSystem.getClip(); 
-		theme.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/creepy.wav"))); 
-		themewin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/win.wav"))); 
-		themedie.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/die.wav")));
-		themegokuWin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/gokuWin.wav")));
-		themeShower.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/shower.wav")));
-		themeBackyard.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/backyard.wav")));
+		theme.open(AudioSystem.getAudioInputStream(new File("resource/creepy.wav"))); 
+		themewin.open(AudioSystem.getAudioInputStream(new File("resource/win.wav"))); 
+		themedie.open(AudioSystem.getAudioInputStream(new File("resource/die.wav")));
+		themegokuWin.open(AudioSystem.getAudioInputStream(new File("resource/gokuWin.wav")));
+		themeShower.open(AudioSystem.getAudioInputStream(new File("resource/shower.wav")));
+		themeBackyard.open(AudioSystem.getAudioInputStream(new File("resource/backyard.wav")));
 		// start the audio
 		theme.start();
 		// if the player chooses to play again after they die then this line resets the amount of lives to 2
@@ -692,12 +692,12 @@ public class ZombieApocalypse// public class ZombieApocalypse begins
 		Clip themeBackyard = AudioSystem.getClip();	
 		Clip theme = AudioSystem.getClip(); 
 
-		theme.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/creepy.wav"))); 
-		themewin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/win.wav"))); 
-		themedie.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/die.wav")));
-		themegokuWin.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/gokuWin.wav")));
-		themeShower.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/shower.wav")));
-		themeBackyard.open(AudioSystem.getAudioInputStream(new File("H:/git/ICS3U/ICS3U/resource/backyard.wav")));
+		theme.open(AudioSystem.getAudioInputStream(new File("resource/creepy.wav"))); 
+		themewin.open(AudioSystem.getAudioInputStream(new File("resource/win.wav"))); 
+		themedie.open(AudioSystem.getAudioInputStream(new File("resource/die.wav")));
+		themegokuWin.open(AudioSystem.getAudioInputStream(new File("resource/gokuWin.wav")));
+		themeShower.open(AudioSystem.getAudioInputStream(new File("resource/shower.wav")));
+		themeBackyard.open(AudioSystem.getAudioInputStream(new File("resource/backyard.wav")));
 		// if player starts the game again then restarts the lves counter
 		if (lives <0)
 		{
